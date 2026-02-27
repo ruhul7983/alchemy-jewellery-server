@@ -24917,3 +24917,20 @@
 2026-02-27 11:32:03:323 [35mhttp[39m: [35mGET /metals/kilo-silver.jpg 200 - 10ms - ::1[39m
 2026-02-27 11:32:03:323 [35mhttp[39m: [35mGET /metals/ten-tola.jpg 200 - 151ms - ::1[39m
 2026-02-27 11:32:58:3258 [32minfo[39m: [32mSIGINT received. Starting graceful shutdown...[39m
+2026-02-27 11:38:02:382 [32minfo[39m: [32m✓ Database connected successfully[39m
+2026-02-27 11:38:02:382 [32minfo[39m: [32m✓ Server running on port 4000[39m
+2026-02-27 11:38:02:382 [32minfo[39m: [32m✓ API URL: http://localhost:4000[39m
+2026-02-27 11:38:03:383 [32minfo[39m: [32mSIGINT received. Starting graceful shutdown...[39m
+2026-02-27 11:40:13:4013 [31merror[39m: [31m✗ Failed to start server: Authentication failed against database server, the provided database credentials for `postgress` are not valid.[39m
+
+[31mPlease make sure to provide valid database credentials for the database server at the configured address.[39m
+2026-02-27 11:40:33:4033 [32minfo[39m: [32m✓ Database connected successfully[39m
+2026-02-27 11:40:33:4033 [32minfo[39m: [32m✓ Server running on port 4000[39m
+2026-02-27 11:40:33:4033 [32minfo[39m: [32m✓ API URL: http://localhost:4000[39m
+2026-02-27 11:40:37:4037 [35mhttp[39m: [35mGET /prices 304 - 1941ms - ::1[39m
+2026-02-27 11:40:37:4037 [35mhttp[39m: [35mGET /metals/jewellery-24k.jpg 304 - 6ms - ::1[39m
+2026-02-27 11:40:37:4037 [35mhttp[39m: [35mGET /metals/ten-tola.jpg 304 - 7ms - ::1[39m
+2026-02-27 11:40:37:4037 [35mhttp[39m: [35mGET /metals/jewellery-22k.jpg 304 - 23ms - ::1[39m
+2026-02-27 11:40:37:4037 [35mhttp[39m: [35mGET /metals/kilo-995.jpg 304 - 38ms - ::1[39m
+2026-02-27 11:40:37:4037 [35mhttp[39m: [35mGET /metals/kilo-9999.jpg 304 - 38ms - ::1[39m
+2026-02-27 11:40:37:4037 [35mhttp[39m: [35mGET /metals/kilo-silver.jpg 304 - 42ms - ::1[39m

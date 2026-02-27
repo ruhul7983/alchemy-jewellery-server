@@ -24,7 +24,7 @@ app.use(helmet({
 // ✅ 2. CORS setup
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://alchemy-jewellery.vercel.app",
     credentials: true,
   })
 );

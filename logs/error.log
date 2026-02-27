@@ -13723,3 +13723,6 @@
 [31m    at router (D:\Projects\Trenzobd\backend\node_modules\router\index.js:60:12)[39m
 [31m    at Layer.handleRequest (D:\Projects\Trenzobd\backend\node_modules\router\lib\layer.js:152:17)[39m
 [31m    at trimPrefix (D:\Projects\Trenzobd\backend\node_modules\router\index.js:342:13)[39m
+2026-02-27 11:40:13:4013 [31merror[39m: [31m✗ Failed to start server: Authentication failed against database server, the provided database credentials for `postgress` are not valid.[39m
+
+[31mPlease make sure to provide valid database credentials for the database server at the configured address.[39m
