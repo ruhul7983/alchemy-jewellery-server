@@ -1,0 +1,42 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "prisma:generate": "prisma generate --config ./prisma.config.js",
+    "prisma:migrate": "prisma migrate dev --config ./prisma.config.js",
+    "prisma:pull": "prisma db pull --config ./prisma.config.js",
+    "prisma:studio": "prisma studio --config ./prisma.config.js",
+    "prisma:push": "prisma db push --config ./prisma.config.js",
+    "prisma:seed": "prisma db seed"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^6.19.2",
+    "axios": "^1.13.5",
+    "bcryptjs": "^3.0.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.3",
+    "multer": "^2.0.2",
+    "pg": "^8.16.3",
+    "prisma": "^6.19.2",
+    "winston": "^3.19.0",
+    "zod": "^4.3.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  }
+}

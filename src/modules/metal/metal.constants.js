@@ -1,0 +1,17 @@
+const GOLD_PURITY = {
+  JEWELLERY_22K: 0.916,
+  JEWELLERY_24K: 0.999,
+  KILO_995: 0.995,
+  KILO_9999: 0.9999,
+};
+
+const GRAM_IN_OUNCE = 31.1035;
+const TOLA_IN_GRAM = 11.6638;
+const KG_IN_GRAM = 1000;
+
+module.exports = {
+  GOLD_PURITY,
+  GRAM_IN_OUNCE,
+  TOLA_IN_GRAM,
+  KG_IN_GRAM,
+};

@@ -1,0 +1,107 @@
+generator client {
+  provider = "prisma-client-js"
+  // output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ✅ Enums for clean logic
+enum Role {
+  USER
+  ADMIN
+}
+
+enum VerificationType {
+  SIGNUP
+  FORGOT_PASSWORD
+  ADMIN_ACTION
+}
+
+// ==========================================
+// USER DOMAIN
+// ==========================================
+
+model User {
+  id       String  @id @default(uuid())
+  email    String  @unique
+  fullName String  @map("full_name")
+  phone    String? @unique
+  password String
+  imageUrl String? @map("image_url")
+  role     Role    @default(USER)
+
+  // ✅ New field to track verification status
+  isVerified Boolean @default(false) @map("is_verified")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  sessions      Session[]
+  verifications Verification[] // ✅ Relation to tracking codes
+  addresses     Address[]
+
+  @@map("users")
+}
+
+// ✅ NEW: Verification Management Model
+model Verification {
+  id     String @id @default(uuid())
+  userId String @map("user_id")
+
+  // The OTP or hashed token
+  code String
+
+  // What is this verification for?
+  type VerificationType
+
+  // Target can be the phone number or email used at that moment
+  target String
+
+  expiresAt DateTime @map("expires_at")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  // To track if the code was already used
+  usedAt DateTime? @map("used_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, code])
+  @@map("verifications")
+}
+
+// schema.prisma
+
+model Session {
+  id           String   @id @default(uuid())
+  userId       String
+  refreshToken String   @unique @map("refresh_token")
+  expiresAt    DateTime @map("expires_at")
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([refreshToken])
+  @@map("sessions")
+}
+
+model Address {
+  id        String  @id @default(uuid())
+  userId    String  @map("user_id")
+  title     String // e.g., "Home", "Office"
+  address   String
+  phone     String
+  isDefault Boolean @default(false) @map("is_default")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("addresses")
+}
+
+// Add this line inside the User model:
+// 
